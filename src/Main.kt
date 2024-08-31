@@ -1,4 +1,3 @@
-// Enum para tipos de ambientes marinhos
 enum class TipoAmbienteMarinho {
     RECIFE_DE_CORAL,
     PRADERIA_DEERAS,
@@ -6,13 +5,12 @@ enum class TipoAmbienteMarinho {
     ZONA_COSTEIRA
 }
 
-// Classe base
+
 open class ConservacaoMarinha(
     tipoAmbiente: TipoAmbienteMarinho,
     areaProtegidaEmKm2: Double,
     possuiProgramaMonitoramento: Boolean
 ) {
-    // Propriedades com lateinit
     lateinit var tipoAmbiente: TipoAmbienteMarinho
     var areaProtegidaEmKm2: Double = areaProtegidaEmKm2
     var possuiProgramaMonitoramento: Boolean = possuiProgramaMonitoramento
@@ -28,7 +26,6 @@ open class ConservacaoMarinha(
     }
 }
 
-// Subclasse para ReservaMarinha
 class ReservaMarinha(
     tipoAmbiente: TipoAmbienteMarinho,
     areaProtegidaEmKm2: Double,
@@ -51,13 +48,12 @@ class ReservaMarinha(
     }
 }
 
-// Subclasse para AreaProtegidaMarinha
 class AreaProtegidaMarinha(
     tipoAmbiente: TipoAmbienteMarinho,
     areaProtegidaEmKm2: Double,
     possuiProgramaMonitoramento: Boolean
 ) : ConservacaoMarinha(tipoAmbiente, areaProtegidaEmKm2, possuiProgramaMonitoramento) {
-    // Propriedade específica para AreaProtegidaMarinha com lateinit
+
     lateinit var tipoProtecao: String
 
     fun definirTipoProtecao(tipoProtecao: String) {
@@ -74,7 +70,6 @@ class AreaProtegidaMarinha(
     }
 }
 
-// Função principal para teste
 fun main() {
     val reserva = ReservaMarinha(
         TipoAmbienteMarinho.RECIFE_DE_CORAL,
